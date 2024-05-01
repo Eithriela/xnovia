@@ -1,0 +1,66 @@
+@keyframes open-nav{
+    from {
+
+    }
+    to {
+
+    }
+}
+
+nav{
+    position: fixed;
+    
+}
+button {
+    background-color: aliceblue;
+    margin: 0px;
+    padding: 20px;
+    transition: 0.1s;
+}
+button:hover{
+    background-color: rgb(122, 193, 255);
+    margin: 0px;
+    padding: 20px;
+    transition: 0.1s;
+}
+
+
+nav ul{
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+nav ul li {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+    position: relative;
+}
+nav ul li a{
+    list-style: none;
+    text-decoration: none;
+    font-size: 40px;
+    margin: 0px;
+    padding: 20px;
+    color:#74c3c3;
+    transition: 0.2s;
+    border-radius: 10px;
+    position: relative;
+}
+nav ul li a:hover{
+    list-style: none;
+    text-decoration: none;
+    font-size: 40px;
+    margin: 0px;
+    padding: 20px;
+    background-color: rgb(211, 255, 255);
+    color:rgb(65, 129, 131);
+    transition: 0.2s;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+#bodyline{
+    padding-top: 100px;
+}

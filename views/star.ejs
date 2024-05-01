@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+    
+    <header>
+        <%- include('partials/nav') %>
+    </header>
+    <main>
+        <h1><%= data[0].name %></h1>
+        <%= data[0].id %>
+        <% if (planets.length > 0) { %>
+            <% planets.forEach(planet => { %>
+                <p><a href="/planet?id= <%=planet.id%>"><%= planet.name %></a></p>
+            <% }) %>
+        <% } %>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>
