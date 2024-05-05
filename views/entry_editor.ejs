@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head'); %>
+<body>
+    <header>
+        <%- include('partials/nav') %>
+    </header>
+    <main>
+        <% if (data.length == 0) {%>
+            <h1 class="display-5">Create Entry</h1>
+            <form action="/entries/create" method="POST">
+                <div class="input-group input-group-lg p-2">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Title</span>
+                    <input id="title" required name="title" type="text" class="form-control text-wrap" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                  </div>
+                  <div class="input-group mb-3 p-2">
+                    <span class="input-group-text align-top" id="inputGroup-sizing-default">Text</span>
+                    <textarea id="text" name="text" type="text" class="form-control text-wrap" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" style="padding-bottom: 100px;"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-secondary">Create</button>
+            </form>
+          <% }%>
+          <% if (data.length > 0) {%>
+              <h1 class="display-5">Edit Entry</h1>
+              <form action="/entries/<%=data[0].id%>" method="POST">
+                <div class="input-group input-group-lg p-2">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Title</span>
+                    <input id="title" required name="title" type="text" class="form-control text-wrap" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" value="<%=data[0].title %>">
+                  </div>
+                  <div class="input-group mb-3 p-2">
+                    <span class="input-group-text align-top" id="inputGroup-sizing-default">Text</span>
+                    <textarea id="text" name="text" type="text" class="form-control text-wrap" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" style="padding-bottom: 100px;"><%=data[0].text %></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-secondary">Update</button>
+            </form>
+            <%}%>
+    </main>
+<%- include('partials/footer') %>
+</body>
+</html>

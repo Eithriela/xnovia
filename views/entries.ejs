@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head'); %>
+
+<body>
+    <header>
+        <%- include('partials/nav') %>
+    </header>
+    <main>
+        <div onfocusin="hide()" onfocusout="unhide()">
+        <%- include('partials/search'); %>
+        </div>
+            <div name="entries" id="entries">
+                <h3 class="display-6">All pages:</h3>
+                <% if (data.length==0) { %>
+                    <p>No entries found</p>
+                <% }%>
+                <% if (data.length > 0) { %>
+                    <% data.forEach(data => { %>
+                        <p><a href="/entries/<%=data.id%>"><%= data.title %></a></p>
+                    <% }) %>
+                <% } %>
+            </div>
+        <a href="/entries/create"><button type="button" class="btn btn-secondary">Create New Entry</button></a>
+    </main>
+    <script>
+        const hide = () => {
+            document.getElementById('search-results').style='display:block';
+            document.getElementById('entries').style='display:none';
+        }
+        const unhide = () => {
+            document.getElementById('search-results').style='display:none';
+            document.getElementById('entries').style='display:block';
+        }
+    </script>
+<%- include('partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,12 @@
+const express = require('express');
+const entriesController = require('../controllers/entriesController');
+const router = express.Router();
+router.use(express.static('public'));
+router.get('/', entriesController.entries_get_all);
+router.get('/search', entriesController.entries_search);
+router.get('/create', entriesController.entry_editor);
+router.post('/create', entriesController.entry_create);
+router.get('/:id/editor', entriesController.entry_editor);
+router.get('/:id', entriesController.entries_details);
+router.post('/:id', entriesController.entry_update);
+module.exports = router;

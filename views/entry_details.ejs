@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head'); %>
+
+<body>
+    <header>
+        <%- include('partials/nav') %>
+    </header>
+    <main>
+        <% if (data.length > 0) {%>
+            <h1 class="display-5"><%=data[0].title %></h1>
+            <p class="p-2"><%=data[0].text %></p>
+            <a href="/entries/<%=data[0].id %>/editor"><button type="button" class="btn btn-secondary">Edit Entry</button></a>
+        <%}%>
+    </main>
+<%- include('partials/footer') %>
+</body>
+</html>
