@@ -7,11 +7,14 @@
     </header>
     <main>
         Login:
-    <form>
-    <input>
-    <input>
+    <form action="/login" method="post" class="input-group">
+        <span class="input-group-text align-top" id="inputGroup-sizing-default">Username</span>
+    <input id="username" name="username" class="form-control">
+    <span class="input-group-text align-top" id="inputGroup-sizing-default">Password</span>
+    <input id="password" name="password" class="form-control">
+    <button type="submit">Login</button>
     </form>
-    <button onclick="Login()">Login</button>
+    
 </main>
 <%- include('partials/footer') %>
 </body>

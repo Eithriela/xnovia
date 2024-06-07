@@ -3,7 +3,13 @@
     <ul class="nav justify-content-end nav-underline">
         <li class="nav-item"><a class="nav-link" href="/map">Galaxy Map</a></li>
         <li class="nav-item"><a class="nav-link" href="/entries">Pages</a></li>
-        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+        <% if (userID!='') {%>
+            <li class="nav-item"><a class="nav-link" href="/user/<%=userID%>"><%=username%></a></li>
+            <%}%>
+            <% if (userID == '') {%>
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                <%}%>
+        
         <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
     </ul>
     <hr>

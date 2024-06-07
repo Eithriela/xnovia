@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'mihaela',
@@ -70,15 +70,15 @@ const entry_update = (req, res) => {
             console.log('Failed to update record', err);
         }
         else {
-            console.log(result);
-            
+            console.log('Entry updated');
+            res.redirect('http://localhost:3000/entries');
         }  
     });
 }
 const entry_create = (req, res) => {
     let title = req.body.title;
     let text = req.body.text;
-    let user = 1;
+    let user = req.body.userID;
     let values = [title, text, user];
     let sql = 'INSERT INTO entries (title, text, user_created) VALUES (?)';
     connection.query(sql, [values], (err, result) => {
@@ -86,8 +86,8 @@ const entry_create = (req, res) => {
             console.log('Failed to upload record', err);
         }
         else {
-            console.log(result);
-            
+            console.log('Entry created');
+            res.redirect('http://localhost:3000/entries');
         }  
     });
 }

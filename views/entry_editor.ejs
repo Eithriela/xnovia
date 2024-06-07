@@ -17,8 +17,16 @@
                     <span class="input-group-text align-top" id="inputGroup-sizing-default">Text</span>
                     <textarea id="text" name="text" type="text" class="form-control text-wrap" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" style="padding-bottom: 100px;"></textarea>
                   </div>
-                  <button type="submit" class="btn btn-secondary">Create</button>
+                  <%if(userID!='') {%>
+                    <input id="userID" name="userID" value="<%=userID%>" style="display: none;">
+                    <button type="submit" class="btn btn-secondary">Update</button>
+                    <%}%>
+                    
+                    
             </form>
+            <% if (userID=='') {%>
+              <a href="http://localhost:3000/login"><button class="btn btn-secondary" onclick="saveEntry()">Log In to create an entry</button></a>
+              <%}%>
           <% }%>
           <% if (data.length > 0) {%>
               <h1 class="display-5">Edit Entry</h1>
@@ -31,9 +39,23 @@
                     <span class="input-group-text align-top" id="inputGroup-sizing-default">Text</span>
                     <textarea id="text" name="text" type="text" class="form-control text-wrap" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" style="padding-bottom: 100px;"><%=data[0].text %></textarea>
                   </div>
+                  <%if(userID!='') {%>
+                  <input id="userID" name="userID" value="<%=userID%>" style="display: none;">
                   <button type="submit" class="btn btn-secondary">Update</button>
+                  <%}%>
+                  
+                  
             </form>
+            <%if(userID=='') {%>
+              <a href="http://localhost:3000/login"><button class="btn btn-secondary" onclick="saveEntry()">Log In to edit an entry</button></a>
             <%}%>
+            <%}%>
+            <script>
+              const saveEntry = () => {
+                document.cookie = 'title';
+                console.log('cookie saved');
+              }
+            </script>
     </main>
 <%- include('partials/footer') %>
 </body>
